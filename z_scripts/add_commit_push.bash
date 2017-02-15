@@ -8,8 +8,12 @@ function init(){
 }
 
 function add_commit_push(){
+    # Get commit message.
+    read -r -p "Enter commit message : " commit_message
+    echo
+    
     git add --all;
-    git commit -m "Scripted Commit!";
+    git commit -m "$commit_message";
     git push --all;
 }
 
