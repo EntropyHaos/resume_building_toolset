@@ -7,6 +7,7 @@ function init(){
     make_readme_file_in_docs_folder_if_needed;
     make_gem_file_if_needed;
     install_jekyll_and_other_dependencies_from_gem_using_bundler;
+    say_goodbye;
 :<<'EOF'
 EOF
 }
@@ -96,4 +97,11 @@ function install_jekyll_and_other_dependencies_from_gem_using_bundler(){
     bundle install;
 }
 
+function say_goodbye(){
+    echo
+    echo "Jekyll should not be ready to run."
+    echo
+    echo "Run with 'bundle exec jekyll serve' from docs folder in repo."
+    echo
+}
 init
