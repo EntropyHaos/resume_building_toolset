@@ -2,14 +2,13 @@
 function init(){
 
     switch_to_c9_project_directory;
-
-:<<'EOF'
     install_bundler;
-EOF
     make_docs_directory_if_needed;
     make_readme_file_in_docs_folder_if_needed;
     make_gem_file_if_needed;
     install_jekyll_and_other_dependencies_from_gem_using_bundler;
+:<<'EOF'
+EOF
 }
 
 function install_bundler(){
@@ -54,8 +53,9 @@ function make_gem_file_if_needed(){
         echo "CREATING Gemfile in $PWD.";
         create_needed_gemfile_file;
     else
-        echo "Gemfile Exists, appending lines needed.";
-        append_lines_to_existing_gemfile;
+        echo "Gemfile Exists.";
+        #echo "Gemfile Exists, appending lines needed.";
+        #append_lines_to_existing_gemfile;
     fi    
 }
 
@@ -94,15 +94,6 @@ EOF
 function install_jekyll_and_other_dependencies_from_gem_using_bundler(){
     switch_to_docs_directory;
     bundle install;
-}
-function add_commit_push(){
-    # Get commit message.
-    read -r -p "Enter commit message : " commit_message
-    echo
-    
-    git add --all;
-    git commit -m "$commit_message";
-    git push --all;
 }
 
 init
