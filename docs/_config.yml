@@ -2,6 +2,9 @@ baseurl: "" # The subpath of your site. Use "" if you're hosting a blog at the r
 port: 8080
 host: 0.0.0.0
 
+kramdown:
+  auto_ids: false
+
 exclude:
   - "README.md"
   - "CHANGELOG.md"

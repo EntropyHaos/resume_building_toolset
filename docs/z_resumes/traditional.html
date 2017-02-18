@@ -1,0 +1,133 @@
+--- 
+---
+<!DOCTYPE  html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
+
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <title>
+  {{ site.data.resume.last_name }}'s Resume Traditional
+ </title>
+ {% include favicon.html %}
+</head>
+
+<body>
+
+ <table style="border-collapse:collapse;margin-left:5pt" cellspacing="0">
+  <tr style="height:38pt">
+   <td style="width:106pt" />
+   <td style="width:340pt;border-bottom-style:solid;border-bottom-width:1pt">
+    <p class="s1" style="text-indent: 0pt;line-height: 13pt;text-align: left;"><a name="bookmark0">{{ site.data.resume.first_name }} {{ site.data.resume.middle_name }} {{ site.data.resume.last_name }}</a><a name="bookmark1">&zwnj;</a><a name="bookmark2">&zwnj;</a><a name="bookmark3">&zwnj;</a><a name="bookmark4">&zwnj;</a>
+     <a name="bookmark5">&zwnj;</a><a name="bookmark6">&zwnj;</a><a name="bookmark7">&zwnj;</a>
+     <a name="bookmark8">&zwnj;</a>
+    </p>
+    <p class="s2" style="padding-top: 4pt;text-indent: 0pt;text-align: left;">{{ site.data.resume.address_street }}, {{ site.data.resume.address_city }}, {{ site.data.resume.address_state_abr }} {{ site.data.resume.address_zip }} − {{ site.data.resume.contact_phone }} – {{ site.data.resume.contact_email }}</p>
+   </td>
+  </tr>
+ </table>
+
+ <br>
+ <div id="traditional_content"></div>
+
+</body>
+
+<script>
+ 
+ var card_array;
+ var card_type_array;
+ var num_of_cards;
+ var num_of_card_types;
+ 
+ var resume_info_object;
+ 
+ card_array = [];
+ card_type_array = [];
+ resume_info_object = [];
+ 
+ function init(){
+     num_of_cards = count_cards();
+     populate_card_type_array();
+     create_resume_info_sections_from_types();
+     add_cards_to_resume_info_sections();
+ }
+ 
+ function count_cards(){
+     var count;
+     count = 0;
+ 
+     {% for card in site.posts %}
+         count++;
+     {% endfor %}
+     
+     return count;
+ }
+ 
+ function populate_card_type_array(){
+     {% for card in site.posts reversed %}
+      {% if card.include_card_on_traditional_resume %}
+       {% if card.type %}
+         if (!card_type_array.includes("{{ card.type }}")){
+          card_type_array.push("{{ card.type }}");
+         }
+       {% endif %}
+      {% endif %}
+     {% endfor %}
+     num_of_card_types = card_type_array.length;
+ }
+ 
+ function create_resume_info_sections_from_types(){
+     var i;
+     for (i=0; i < card_type_array.length; i++){
+      var object_atribute = card_type_array[i];
+      resume_info_object[object_atribute] = [];
+     }
+ }
+ 
+ function add_cards_to_resume_info_sections(){
+     {% for card in site.posts %}
+      {% if card.include_card_on_traditional_resume %}
+       var display_card = "{{ card.include_card_on_traditional_resume }}";
+       if (display_card === "true" ){
+         {% if card.type %}
+          var card_type = "{{ card.type }}";
+          var insert_card = [];
+          {% if card.heading %}
+           insert_card["heading"] = "{{ card.heading }}";
+          {% endif %}
+          
+          {% if card.subheading %}
+           insert_card["subheading"] = "{{ card.subheading }}";
+          {% endif %}
+          
+          {% if card.duration %}
+           insert_card["duration"] = "{{ card.duration }}";
+          {% endif %}
+          
+          {% if card.display_content_on_traditional_resume %}
+           var display_card_contact = "{{ card.display_content_on_traditional_resume }}";
+           if (display_card_contact === "true" ){
+            insert_card["display_content"] = "{{ card.content | strip_newlines }}";
+           }
+          {% endif %}
+          resume_info_object[card_type].push(insert_card);
+         {% endif %}
+       }
+      {% endif %}
+     {% endfor %}
+ }
+ 
+ function console_display_object(object_to_display){
+     var output = '';
+     for (var property in object_to_display) {
+       output += property + ': ' + object_to_display[property]+'; ' +"\n";
+     }
+     console.log("" + output);
+ }
+ 
+ init();
+</script> 
+ 
+<script src="{{ "/js/traditional.js " | prepend:site.baseurl }}"></script>
+<link rel="stylesheet" href="{{ " /css/traditional.css " | prepend:site.baseurl }}">
+
+</html>

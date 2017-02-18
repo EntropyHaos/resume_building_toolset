@@ -2,16 +2,29 @@
 
 photo_for_cards: "../img/profile_image.png"
 image_for_root: "img/profile_image.png"
+
 name: "Your Name"
+first_name: "John"
+middle_name: "Haos"
+last_name: "Doe"
+
+address_street: "Street Address"
+address_city: "City"
+address_state_abr: "ST"
+address_state: "State"
+address_zip: "Zip Code"
+
 copy: "Bio. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
 
 # Contact Info:
 
-twitter_id: "your_twitter_id"
-github_id: "your_github_id"
-linked_in_id: "your_linkedin_id"
-personal_url: "your_personal_website_url.com"
-contact_email: "your_contact_email_address"
+contact_twitter_id: "your_twitter_id"
+contact_github_id: "your_github_id"
+contact_linked_in_id: "your_linkedin_id"
+contact_personal_url: "your_personal_website_url.com"
+contact_email: "you@domain"
+
+contact_phone: "555-555-5555"
 
 # Color scheme based on http://www.materialui.co/colors.
 # Possible values:

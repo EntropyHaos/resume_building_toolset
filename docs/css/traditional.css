@@ -1,0 +1,74 @@
+  * {
+   margin: 0;
+   padding: 0;
+   text-indent: 0;
+  }
+  
+  .s1 {
+   color: black;
+   font-family: "Century Gothic", sans-serif;
+   font-style: normal;
+   font-weight: bold;
+   text-decoration: none;
+   font-size: 12pt;
+  }
+  
+  .s2 {
+   color: black;
+   font-family: "Century Gothic", sans-serif;
+   font-style: normal;
+   font-weight: normal;
+   text-decoration: none;
+   font-size: 9pt;
+  }
+  
+  .s3 {
+   color: black;
+   font-family: "Century Gothic", sans-serif;
+   font-style: normal;
+   font-weight: bold;
+   text-decoration: none;
+   font-size: 9pt;
+  }
+  
+  .s4 {
+   color: black;
+   font-family: "Century Gothic", sans-serif;
+   font-style: italic;
+   font-weight: normal;
+   text-decoration: none;
+   font-size: 9pt;
+  }
+  
+  #traditional_content_table {
+   font-family: "Century Gothic", sans-serif;
+   border-collapse: collapse;
+   font-size: 11pt;
+  }
+  
+  .section_type_cell {
+   vertical-align: top;
+   text-align: left;
+   padding-left: 10pt;
+   width: 95pt;
+  }
+  
+  .section_data_cell {
+   width: 340pt;
+  }
+  
+  .section_row {
+   border: 10px solid;
+   border-color: transparent;
+  }
+  
+  .object_content_text {
+   padding-top: 5pt;
+  }
+  .resume_info_object_div {
+   padding-bottom: 5pt;
+  }
+  ul {
+   list-style-type: none;
+  }
+  

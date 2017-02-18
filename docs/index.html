@@ -11,8 +11,9 @@
   <link href='//fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ "/css/resumecards.css " | prepend:site.baseurl }}">
+  {% include favicon.html %}
   <title>
-    {{ site.data.resume.name }}'s Resume
+    {{ site.data.resume.last_name }}'s Resume Home
   </title>
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -34,11 +35,14 @@
         </div>
       </div>
       <div class="col-sm-4 resume-contact">
-        {% include nav.html %}
+        {% include contact_info.html %}
       </div>
     </div>
     <div>
-      <a href="z_resumes/with_cards.html" target="_blank">Resume Cards</a>
+      <ul>
+        <li><a href="z_resumes/with_cards.html" target="_blank">Resume Cards</a></li>
+        <li><a href="z_resumes/traditional.html" target="_blank">Traditional</a></li>
+      </ul>
     </div>
   </div>
 
@@ -46,7 +50,8 @@
   <script src="{{ "/js/jquery.min.js " | prepend:site.baseurl }}"></script>
   <script src="{{ "/js/bootstrap.min.js " | prepend:site.baseurl }}"></script>
   <script src="{{ "/js/resumecards.js " | prepend:site.baseurl }}"></script>
-  {% include scripts.html %}
+  {% include twitter.html %}
+  {% include google_analytics.html %}
 </body>
 
 </html>
